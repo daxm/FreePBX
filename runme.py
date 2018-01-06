@@ -1,15 +1,13 @@
 #!/usr/bin/env python
 
+from userdata import *
 import os
 
-workdir = '.'
-excluded_file = os.path.join(workdir, 'excluded_extensions')
+excluded_file = os.path.join(workdir, excluded_files_filename)
 
-cfg_files = os.listdir('./samplefiles')
-
-excluded_files = []
-if not os._exists('excluded_extensions'):
-    with open()
+if not os._exists(excluded_file):
+    with open(excluded_file, 'w'):
+        pass
 with open('excluded_extensions', 'r') as file:
     excluded_files = file.read().splitlines()
 
