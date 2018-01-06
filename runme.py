@@ -2,8 +2,8 @@
 
 from userdata import *
 import os
-import xml.etree.ElementTree as ET
 import subprocess
+
 
 def main():
     excluded_file = os.path.join(workdir, excluded_files_filename)
@@ -21,6 +21,7 @@ def main():
             subprocess.call(["""sed -i -e 's/Model="5235"/Model="daxm"/g' {}""".format(true_file)], shell=True)
         else:
             print("{} is being excluded.".format(file))
+
 
 if __name__ == "__main__":
     main()
