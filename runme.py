@@ -2,17 +2,25 @@
 
 from userdata import *
 import os
+import xml.etree.ElementTree as ET
+import subprocess
 
-excluded_file = os.path.join(workdir, excluded_files_filename)
+def main():
+    excluded_file = os.path.join(workdir, excluded_files_filename)
 
-if not os._exists(excluded_file):
-    with open(excluded_file, 'w'):
-        pass
-with open('excluded_extensions', 'r') as file:
-    excluded_files = file.read().splitlines()
+    if not os.path.isfile(excluded_file):
+        with open(excluded_file, 'w'):
+            pass
+    with open('excluded_extensions', 'r') as file:
+        excluded_files = file.read().splitlines()
 
-for file in cfg_files:
-    if 'MN_' in file and file not in excluded_files:
-        print(file)
-    else:
-        print("{} is being excluded.".format(file))
+    for file in cfg_files:
+        if 'MN_' in file and file not in excluded_files:
+            print("{} is being modified to fix Mitel model type in the XML.".format(file))
+            true_file = os.path.join(cfg_file_dir, file)
+            subprocess.call(["""sed -i -e 's/Model="5235"/Model="daxm"/g' {}""".format(true_file)], shell=True)
+        else:
+            print("{} is being excluded.".format(file))
+
+if __name__ == "__main__":
+    main()

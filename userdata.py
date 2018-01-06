@@ -2,6 +2,8 @@ import os
 
 # workdir = '/tftpboot/mitel_patch'
 workdir = '.'
+#cfg_file_dir = '/tftpboot'
+cfg_file_dir = './samplefiles'
+
 excluded_files_filename = 'excluded_extensions'
-log_file = os.path.join(workdir, 'output.log')
-cfg_files = os.listdir('./samplefiles')
+cfg_files = os.listdir(cfg_file_dir)
