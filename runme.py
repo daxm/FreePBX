@@ -1,4 +1,8 @@
 #!/usr/bin/env python2
+"""
+Patch cfg files to allow Mitel 5235 phones to load their cfg files from /tftpboot on FreePBX.
+Note:  Be sure to "exclude" any Mitel 5224 phone cfg files or they will be "updated" as well.
+"""
 
 import os
 import subprocess
