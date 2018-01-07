@@ -1,0 +1,12 @@
+[Unit]
+Description=FreePBX Patch for Mitel 5235 phone cfg files.
+After=syslog.target
+
+[Service]
+Type=forking
+#ExecStart=/usr/bin/python /home/daxm/PycharmProjects/FreePBX/runme.py
+ExecStart=/usr/bin/python /tftpboot/mitel_patch/runme.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
