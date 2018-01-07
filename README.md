@@ -15,3 +15,6 @@ store this file somewhere else.  If so, modify the **workdir** variable in the s
 Additionally, I created the systemd service file that you can use to run this script at bootup of the FreePBX server.
 Just copy the **mitel_patch.service** file to **/etc/systemd/system/** folder.  Then issue the command
 **systemctl enable mitel_patch.service** to configure this file to run at system startup.
+
+Note: You can use the command **journalctl -u mitel_patch** to see the log output.  Currently the log output is sparse
+but you can at least see that the program is running and the timestamp it last scanned the files.
