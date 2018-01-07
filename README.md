@@ -16,6 +16,6 @@ Additionally, I created the systemd service file that you can use to run this sc
 Just copy the **mitel_patch.service** file to **/etc/systemd/system/** folder.  Then issue the command
 **systemctl enable mitel_patch.service** to configure this file to run at system startup.
 
-#Note: You can use the command **journalctl -u mitel_patch** to see the log output.  Currently the log output is sparse but you can at least see that the program is running and the timestamp it last scanned the files.
+**Note:** You can use the command **journalctl -u mitel_patch** to see the log output.  Currently the log output is sparse but you can at least see that the program is running and the timestamp it last scanned the files.
 
-#Note: Alas, this program was written to be run in Python 2.7.  This is because the current version of FreePBX comes with this version pre-installed.  Hopefully future versions will have Python3.
+**Note:** Alas, this program was written to be run in Python 2.7.  This is because the current version of FreePBX comes with this version pre-installed.  Hopefully future versions will have Python3.
