@@ -25,16 +25,16 @@ def main():
         if not os.path.isfile(excluded_file):
             with open(excluded_file, 'w'):
                 pass
-        with open(excluded_file, 'r') as file:
-            excluded_files = file.read().splitlines()
+        with open(excluded_file, 'r') as the_file:
+            excluded_files = the_file.read().splitlines()
 
-        for file in cfg_files:
-            if 'MN_' in file and file not in excluded_files:
-                logging.info("{} is being modified to fix Mitel model type in the XML.".format(file))
-                true_file = os.path.join(cfg_file_dir, file)
+        for the_file in cfg_files:
+            if 'MN_' in the_file and the_file not in excluded_files:
+                logging.info("{} is being modified to fix Mitel model type in the XML.".format(the_file))
+                true_file = os.path.join(cfg_file_dir, the_file)
                 subprocess.call(["""sed -i -e 's/Model="5224"/Model="5235"/g' {}""".format(true_file)], shell=True)
             else:
-                logging.info("{} is being excluded.".format(file))
+                logging.info("{} is being excluded.".format(the_file))
         logging.info("Sleeping for {} seconds.".format(sleep_time))
         time.sleep(sleep_time)
 
